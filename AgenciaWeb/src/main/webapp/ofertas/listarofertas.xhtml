@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../template/plantillajsf.xhtml">
+
+            <ui:define name="content">
+                <section class="row">        
+                    <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="col-sx-10 col-sm-10 col-md-10 col-lg-10">  
+                        <f:view>
+                            <h:form>
+                                <h1><h:outputText value="OFERTAS"/></h1>
+                                <p:dataTable value="#{controllerOferta.listarOfertas()}" var="ofertaobj">
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="id"/>
+                                        </f:facet>
+                                        <h:outputText value="#{ofertaobj.idtblOferta}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="oferta"/>
+                                        </f:facet>
+                                        <h:outputText value="#{ofertaobj.nombre}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Descripcion"/>
+                                        </f:facet>
+                                        <h:outputText value="#{ofertaobj.descripcion}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="FechaInicio"/>
+                                        </f:facet>
+                                        <h:outputText value="#{ofertaobj.fechaInicio}">
+                                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                                        </h:outputText>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="FechaFin"/>
+                                        </f:facet>
+                                        <h:outputText value="#{ofertaobj.fechaFin}">
+                                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                                        </h:outputText>
+                                    </p:column>
+                                </p:dataTable>
+                            </h:form>
+                        </f:view>
+                    </div>
+                <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+                </section>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
